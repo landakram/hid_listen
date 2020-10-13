@@ -1,7 +1,7 @@
 PROG = hid_listen
 
-OS = LINUX
-#OS = DARWIN
+#OS = LINUX
+OS = DARWIN
 #OS = WINDOWS
 
 
@@ -13,10 +13,10 @@ CFLAGS = -O2 -Wall -D$(OS)
 LIBS =
 else ifeq ($(OS), DARWIN)
 TARGET = $(PROG)
-CC = gcc
+CC = clang
 STRIP = strip
-SDK = /Developer/SDKs/MacOSX10.5.sdk
-CFLAGS = -O2 -Wall -isysroot $(SDK) -D$(OS) -arch ppc -arch i386
+SDK = /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/
+CFLAGS = -O2 -Wall -isysroot $(SDK) -D$(OS)  -arch x86_64
 LIBS = -Xlinker -syslibroot -Xlinker $(SDK) -framework IOKit -framework CoreFoundation
 else ifeq ($(OS), WINDOWS)
 TARGET = $(PROG).exe

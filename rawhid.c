@@ -50,7 +50,7 @@
 /**                                                                     **/
 /*************************************************************************/
 
-#if defined(LINUX) || defined(__LINUX__) || #system(linux)
+#if defined(LINUX) || defined(__LINUX__)
 #define OPERATING_SYSTEM linux
 #include <fcntl.h>
 #include <errno.h>
